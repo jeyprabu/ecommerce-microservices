@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+
+  cloud:
+
+    gateway:
+
+      mvc:
+
+        routes:
+
+          - id: customer-service
+
+            uri: http://customer-service:8081
+
+            predicates:
+              - Path=/customers/**
+
+          - id: order-service
+
+            uri: http://order-service:8082
+
+            predicates:
+              - Path=/orders/**
