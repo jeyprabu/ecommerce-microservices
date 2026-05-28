@@ -12,15 +12,16 @@ spring:
         routes:
 
           - id: customer-service
-
             uri: http://customer-service:8081
-
             predicates:
               - Path=/customers/**
 
           - id: order-service
-
             uri: http://order-service:8082
-
             predicates:
               - Path=/orders/**
+
+          - id: auth-service
+            uri: http://auth-service:8084
+            predicates:
+              - Path=/auth/**

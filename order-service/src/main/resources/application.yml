@@ -1,16 +1,22 @@
 server:
-  port: 8082
+    port: 8082
 
 spring:
+    data:
+        mongodb:
+            uri: mongodb://mongodb:27017/order_db
 
-  data:
-    mongodb:
-      uri: mongodb://mongodb:27017/order_db
+    kafka:
+        bootstrap-servers: kafka:9092
 
-  kafka:
-    bootstrap-servers: kafka:9092
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+jwt:
+    secret: "jwt token"
+
+    expiration: 3600000
+
+    refresh-expiration: 604800000

@@ -1,0 +1,36 @@
+package com.ecommerce.authservice.controller;
+
+import com.ecommerce.authservice.dto.AuthResponse;
+import com.ecommerce.authservice.dto.LoginRequest;
+import com.ecommerce.authservice.dto.RegisterRequest;
+import com.ecommerce.authservice.service.AuthService;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/auth")
+public class AuthController {
+
+	private final AuthService authService;
+
+	public AuthController(AuthService authService) {
+		this.authService = authService;
+	}
+
+	@PostMapping("/register")
+	public String register(@Valid @RequestBody RegisterRequest request) {
+		authService.register(request);
+		return "User registered successfully";
+	}
+
+	@PostMapping("/login")
+	public AuthResponse login(@Valid @RequestBody LoginRequest request) {
+		return authService.login(request);
+	}
+
+	@PostMapping("/refresh")
+	public AuthResponse refreshToken(@RequestParam("token") String token) {
+		return authService.refreshToken(token);
+	}
+
+}
