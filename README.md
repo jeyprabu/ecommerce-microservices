@@ -1,18 +1,22 @@
-# Ecommerce Microservices Backend
+# Ecommerce Microservices Architecture
 
-Event-driven ecommerce backend built using:
+## Tech Stack
 
 - Java 17
 - Spring Boot
-- Spring Cloud Gateway
+- Spring Security
+- JWT Authentication
+- RBAC
 - Apache Kafka
 - MongoDB
 - MySQL
 - Docker Compose
-- Multi-module Maven
+- API Gateway
+- Maven Multi Module
 
-## Architecture
+## Microservices
 
+- auth-service
 - customer-service
 - order-service
 - inventory-service
@@ -21,12 +25,13 @@ Event-driven ecommerce backend built using:
 
 ## Features
 
-- REST APIs
-- Kafka producer/consumer
-- Event-driven architecture
-- API Gateway routing
-- Polyglot persistence
-- Dockerized infrastructure
+- JWT Authentication
+- Refresh Tokens
+- Role Based Access Control
+- Kafka Event Driven Communication
+- MongoDB + MySQL Polyglot Persistence
+- Shared Common Library
+- Dockerized Development Environment
 
 ## Run
 
